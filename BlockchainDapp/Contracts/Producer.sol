@@ -23,6 +23,9 @@ contract Producer is Ownable{
 
 contract Manager is Producer {
     
+    constructor() public {
+        expertiseCategory = "Manager";
+    }
 }
 
 contract Product is Ownable {
@@ -30,4 +33,38 @@ contract Product is Ownable {
     uint DEVcost;
     uint REVreward;
     Manager manager;
+}
+
+contract Marketplace {
+    string id;
+    uint noProducts = 0;
+    mapping(string => Product) products;
+    mapping(address => Producer) marketplaceActors;
+    
+    constructor() public {
+        id= "The Marketplace";
+    }
+    
+    struct Product {
+        string id;
+        string description;
+        uint DEVcost;
+        uint REVreward;
+        Manager manager;
+        address owner;
+        bool purchased;
+    }
+    
+    event ProductCreation (
+        //all the parameters
+        uint noProducts
+    );
+    
+    function CreateProduct() public
+    {
+        //require address to be manager;
+        noProducts++;
+        
+        emit ProductCreation(noProducts);
+    }
 }
