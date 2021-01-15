@@ -14,23 +14,10 @@ async function InitializeEthereumConnection() {
     }
 }
 
-const initPayButton = () => {
-    $('.pay-button').click(() => {
-        // paymentAddress is where funds will be send to
-        const paymentAddress = '0x192c96bfee59158441f26101b2db1af3b07feb40'
-        const amountEth = 1
+async function CreateProduct() {
 
-        web3.eth.sendTransaction({
-            to: paymentAddress,
-            value: web3.toWei(amountEth, 'ether')
-        }, (err, transactionId) => {
-            if (err) {
-                console.log('Payment failed', err)
-                $('#status').html('Payment failed')
-            } else {
-                console.log('Payment successful', transactionId)
-                $('#status').html('Payment successful')
-            }
-        })
-    })
+    let result = await window.ethereum.request(
+        { method: 'CreateProduct' }
+    );
+    console.log(result);
 }
