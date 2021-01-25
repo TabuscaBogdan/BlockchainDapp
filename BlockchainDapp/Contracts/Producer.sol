@@ -60,11 +60,12 @@ contract Marketplace {
         uint noProducts
     );
     
-    function CreateProduct() public
+    function CreateProduct() public returns(uint)
     {
         //require address to be manager;
         noProducts++;
         
-        emit ProductCreation(noProducts);
+        //emit ProductCreation(noProducts);
+        return noProducts;
     }
 }
