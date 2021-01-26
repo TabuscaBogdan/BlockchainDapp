@@ -4,12 +4,80 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Main</title>
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/Droopdowns.css" type="text/css" media="screen" />
     <script type="text/javascript" src="js/accordian.pack.js"></script>
     <script type="text/javascript" src="js/ABIErc20Token.js"></script>
     <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
     <script type="text/javascript" src="js/BlockchainConnect.js"></script>
+    <script type="text/javascript" src="js/Management.js"></script>
 </head>
 <body onload="InitializeEthereumConnection()">
-    <button class="accBtn" onclick="CreateProduct()">CreateProduct</button>
+    <div id="logo"><h1>Blockchain Dapp</h1></div>
+    <button class="accBtn" onclick="CreateProduct()">InitializeMarketplace</button>
+    <div style="position:absolute; left:80px; top:20px;">
+        <ul class="navigation">
+            <a class="main" href="#url">Managers</a>
+            <li class="n1"><a href="#">item #1</a></li>
+            <li class="n2"><a href="#">item #2</a></li>
+            <li class="n3"><a href="#">item #3</a></li>
+            <li class="n4"><a href="#">item #4</a></li>
+            <li class="n5"><a href="#">item #5</a></li>
+        </ul>
+
+        <ul class="navigation">
+            <a class="main" href="#url">Freelancer</a>
+            <li class="n1">Some Text Here</li>
+            <li class="n2"><a href="#">item #2</a></li>
+            <li class="n3"><a href="#">item #3</a></li>
+            <li class="n3"><a href="#">item #4</a></li>
+            <li class="n5"><a href="#">item #5</a></li>
+        </ul>
+        <ul class="navigation">
+            <a class="main" href="#url">Finantator</a>
+            <li class="n1"><a href="#">item #1</a></li>
+            <li class="n1"><a href="#">item #2</a></li>
+        </ul>
+
+    </div>
+    
+
+    <div id="basic-accordian">
+        <div id="test4-header" class="accordion_headings">Product Creation:</div>
+        <div id="test4-content">
+            <div class="accordion_child">
+                <p>Product Attributes:</p>
+                <form action="javascript:void(0);">
+                    <div class="form_settings">
+                        <p><span>Product Name</span><textarea id="ProductNameBox" class="contact textarea" rows="1" cols="50" name=""></textarea></p>
+                        <p><span>Product Description</span><textarea id="ProductDescription" class="contact textarea" rows="2" cols="50" name=""></textarea></p>
+                        <p><span>Product Cost</span><input id="ProductDEVCost" type="number" min="1" max="20"></p>
+                        <p><span>Product Reward</span><input id="ProductREV" type="number" min="1" max="20"></p>
+                        <p>
+                            <span>Expertise</span><select id="Expertise">
+                                <option value="Art">Art</option>
+                                <option value="Soft">Software</option>
+                                <option value="Webpage">Webpage</option>
+                            </select>
+                        </p>
+                        <p style="padding-top: 15px">
+                            <span>&nbsp;</span><button class="submit"
+                                                       name="contact_submitted"
+                                                       onclick="PostProduct()">
+                                Create Product
+                            </button>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="test5-header" class="accordion_headings">Current Products:</div>
+        <div class="accordion_child">
+            
+        </div>
+    </div>
+    <div id="footer">
+        <p>Only on the Marketplace</p>
+    </div>
 </body>
 </html>
