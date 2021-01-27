@@ -1,4 +1,4 @@
-﻿var contractAddress = '0xcC1dbAd2E8d1dc8CeF7F429AbD8f6eE81ACEB4F8';
+﻿var contractAddress = '0xAB07d4E4671D9241C190AE8252d14a98d3851283';
 var contractToken;
 var currentManager = "JimmyPlaceholder";
 async function InitializeEthereumConnection() {
@@ -23,9 +23,15 @@ async function InitializeEthereumConnection() {
     }
 }
 
-async function CreateProduct() {
-    let result = await contractToken.methods.CreateProduct().call();
+async function CreateProduct(productData) {
+
+    let result = await contractToken.methods.
+        CreateProduct(productData["Name"], productData["Description"],
+            parseInt(productData["DEVCost"]),
+            parseInt(productData["REV"]), productData["Expertise"])
+        .call();
     console.log(result);
+    return result
 }
 
 async function PostProduct() {
@@ -40,7 +46,14 @@ async function PostProduct() {
     data["Name"] = id; data["Description"] = description; data["DEVCost"] = dev; data["REV"] = rev; data["Expertise"] = experitise;
 
     //CreateNewProductsTable(currentManager);
+    let testCall = await contractToken.methods.TestCall().call();
+
+    let testedParameter = await contractToken.methods.TestParameter(15).call();
+    console.log(testedParameter);
+
     var table = CreateProductsTable(currentManager);
     RenderProductsTable(table);
-    AddProductToTable(table, data);
+    var createdProduct = await CreateProduct(data)
+    console.log(createdProduct);
+    //AddProductToTable(table, data);
 }

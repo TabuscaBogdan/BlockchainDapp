@@ -1,11 +1,89 @@
 ﻿var ABIErc20Token = [
     {
         "constant": false,
-        "inputs": [],
+        "inputs": [
+            {
+                "name": "_name",
+                "type": "string"
+            },
+            {
+                "name": "_description",
+                "type": "string"
+            },
+            {
+                "name": "dev",
+                "type": "uint"
+            },
+            {
+                "name": "rev",
+                "type": "uint"
+            },
+            {
+                "name": "expertise",
+                "type": " string"
+            }
+        ],
         "name": "CreateProduct",
         "outputs": [
             {
-                "name": "noProducts",
+                "name": "id",
+                "type": "string"
+            },
+            {
+                "name": "description",
+                "type": "string"
+            },
+            {
+                "name": "DEVcost",
+                "type": "uint"
+            },
+            {
+                "name": "REVreward",
+                "type": "uint"
+            },
+            {
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "name": "purchased",
+                "type": "bool"
+            },
+            {
+                "name": "productNumber",
+                "type": "uint"
+            },
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "name": "parameter",
+                "type": "uint"
+            }
+        ],
+        "name": "TestParameter",
+        "outputs": [
+            {
+                "name": "id",
+                "type": "uint"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [],
+        "name": "TestCall",
+        "outputs": [
+            {
+                "name": "abcd",
                 "type": "uint"
             }
         ],
